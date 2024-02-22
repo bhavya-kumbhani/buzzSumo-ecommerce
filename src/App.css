@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.slick-arrow.slick-next {
+    display: none !important;
+}
+
+.slick-slide {
+    padding: 0 8px;
+}
+
+.slick-dots {
+    bottom: 35px !important;
+}
+.slick-dots li button:before {
+    font-size: 14px !important;
+}
+.right-arrow {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow:
+        rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 30px;
+    cursor: pointer;
+    z-index: 9998999;
+    background: #fff;
+}
+
+.left-arrow {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow:
+        rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+        rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 30px;
+    cursor: pointer;
+    z-index: 9998999;
+    background: #fff;
+}
