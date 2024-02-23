@@ -54,19 +54,19 @@ const TableItem = ({
                     <td className="px-6 py-4 flex items-center justify-center gap-3">
                       <div
                         onClick={() => handleShow(item.id)}
-                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline cursor-pointer"
                       >
                         <FontAwesomeIcon icon={faEye} />
                       </div>
                       <div
                         onClick={() => handleOnEdit(item.id)}
-                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline cursor-pointer"
                       >
                         <FontAwesomeIcon icon={faPen} />
                       </div>
                       <div
                         onClick={() => handleDeleteProduct(item)}
-                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                        className="font-medium text-blue-600 dark:text-blue-500 hover:underline cursor-pointer"
                       >
                         <FontAwesomeIcon icon={faTrash} />
                       </div>

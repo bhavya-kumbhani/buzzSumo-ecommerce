@@ -3,9 +3,11 @@ import { logout } from "../../../helpers/api/authHelper";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserInfo } from "../../../store/slices/authSlice";
 import Logo from "../../../assets/icons/bussumologo.svg";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { userInfo } = useSelector((state) => state.auth);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -24,11 +26,7 @@ const Header = () => {
       <div className="cursor-pointer">
         {" "}
         <a href="/" className="flex items-center">
-          <img
-            src={Logo}
-            className="h-8 me-3"
-            alt="BuzzSumo Logo"
-          />
+          <img src={Logo} className="h-8 me-3" alt="BuzzSumo Logo" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-dark">
             BuzzSumo
           </span>
@@ -68,18 +66,18 @@ const Header = () => {
           </div>
         ) : (
           <div>
-            <a
-              href="/login"
+            <span
+              onClick={() => navigate("/login")}
               className="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-transparent rounded hover:bg-indigo-100 hover:text-indigo-700 transition-colors duration-300"
             >
               Login
-            </a>
-            <a
-              href="/signup"
+            </span>
+            <span
+              onClick={() => navigate("/signup")}
               className="p-2 lg:px-4 md:mx-2 text-indigo-600 text-center border border-solid border-indigo-600 rounded hover:bg-indigo-600 hover:text-white transition-colors duration-300 mt-1 md:mt-0 md:ml-1"
             >
               Signup
-            </a>
+            </span>
           </div>
         )}
         <div
