@@ -1,6 +1,18 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import Logo from "../../../assets/icons/bussumologo.svg";
 
 const Footer = () => {
+  const { userInfo } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+  const handleRedirect = () => {
+    if (userInfo && Object.keys(userInfo)?.length > 0 && userInfo?.isLogin) {
+      navigate("/product");
+    } else {
+      navigate("/login");
+    }
+  };
   return (
     <>
       <footer className="bg-white dark:bg-gray-900">
@@ -9,12 +21,12 @@ const Footer = () => {
             <div className="mb-6 md:mb-0">
               <a href="/" className="flex items-center">
                 <img
-                  src="https://flowbite.com/docs/images/logo.svg"
+                  src={Logo}
                   className="h-8 me-3"
-                  alt="FlowBite Logo"
+                  alt="BuzzSumo Logo"
                 />
                 <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                  Flowbite
+                  BuzzSumo
                 </span>
               </a>
             </div>
@@ -25,13 +37,8 @@ const Footer = () => {
                 </h2>
                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
                   <li className="mb-4">
-                    <a href="https://flowbite.com/" className="hover:underline">
-                      Flowbite
-                    </a>
-                  </li>
-                  <li>
-                    <a href="https://tailwindcss.com/" className="hover:underline">
-                      Tailwind CSS
+                    <a href="/" className="hover:underline">
+                      BuzzSumo
                     </a>
                   </li>
                 </ul>
@@ -43,7 +50,7 @@ const Footer = () => {
                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
                   <li className="mb-4">
                     <a
-                      href="https://github.com/themesberg/flowbite"
+                      href="https://github.com/"
                       className="hover:underline "
                     >
                       Github
@@ -51,7 +58,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="https://discord.gg/4eeurUVvTy"
+                      href="https://discord.gg"
                       className="hover:underline"
                     >
                       Discord
@@ -65,7 +72,7 @@ const Footer = () => {
                 </h2>
                 <ul className="text-gray-500 dark:text-gray-400 font-medium">
                   <li className="mb-4">
-                    <a href="/product">Products</a>
+                    <a onClick={handleRedirect}>Products</a>
                   </li>
                   <li className="mb-4">
                     <a href="#" className="hover:underline">
@@ -77,7 +84,6 @@ const Footer = () => {
                       Terms &amp; Conditions
                     </a>
                   </li>
-
                 </ul>
               </div>
             </div>
@@ -86,8 +92,8 @@ const Footer = () => {
           <div className="sm:flex sm:items-center sm:justify-between">
             <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
               © 2023{" "}
-              <a href="https://flowbite.com/" className="hover:underline">
-                Flowbite™
+              <a href="/" className="hover:underline">
+                BuzzSumo
               </a>
               . All Rights Reserved.
             </span>

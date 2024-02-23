@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { logout } from "../../../helpers/api/authHelper";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserInfo } from "../../../store/slices/authSlice";
+import Logo from "../../../assets/icons/bussumologo.svg";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -24,12 +25,12 @@ const Header = () => {
         {" "}
         <a href="/" className="flex items-center">
           <img
-            src="https://flowbite.com/docs/images/logo.svg"
+            src={Logo}
             className="h-8 me-3"
-            alt="FlowBite Logo"
+            alt="BuzzSumo Logo"
           />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-dark">
-            Flowbite
+            BuzzSumo
           </span>
         </a>
       </div>

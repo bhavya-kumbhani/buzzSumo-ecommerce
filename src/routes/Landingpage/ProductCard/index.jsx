@@ -12,6 +12,14 @@ import Slider from "react-slick";
 const ProductCard = () => {
   const navigate = useNavigate();
   const { productData } = useSelector((state) => state.product);
+  const { userInfo } = useSelector((state) => state.auth);
+  const handleRedirect = () => {
+    if (userInfo && Object.keys(userInfo)?.length > 0 && userInfo?.isLogin) {
+      navigate("/product");
+    } else {
+      navigate("/login");
+    }
+  };
   function SampleNextArrow(props) {
     const { onClick } = props;
     return (
@@ -98,7 +106,7 @@ const ProductCard = () => {
           {productData?.data?.map((item, index) => {
             return (
               <div className="max-w-xs mx-auto w-96" key={index}>
-                <div className="bg-white border border-gray-200 rounded-lg dark:bg-gray-800 h-500 p-2 dark:border-gray-700 hover:shadow-lg cursur-pointer">
+                <div className="bg-white border border-gray-200 rounded-l hover:shadow-lg cursur-pointer p-4">
                   <a href="#" className="flex justify-center">
                     <img
                       className="rounded-t-lg w-full h-auto"
@@ -110,7 +118,7 @@ const ProductCard = () => {
                   <div className="pt-5 px-3">
                     <a href="#">
                       <h5
-                        className="mb-2 text-2xl font-medium tracking-tight text-gray-900 dark:text-white"
+                        className="mb-2 text-2xl font-medium tracking-tight text-gray-900 dark:text-dark"
                         style={{
                           whiteSpace: "nowrap",
                           width: "260px",
@@ -141,7 +149,7 @@ const ProductCard = () => {
         </Slider>
         <div
           className="flex justify-end items-center gap-2 pr-4 pt-5 cursor-pointer"
-          onClick={() => navigate("/product")}
+          onClick={handleRedirect}
         >
           View all <FontAwesomeIcon icon={faArrowRight} />
         </div>

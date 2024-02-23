@@ -16,7 +16,7 @@ const HeroSection = () => {
         {bannerData.map((item, index) => {
           return (
             <div className="w-full" key={index}>
-              <img key={index} src={item?.bannerImg} alt={`slider-${index}`} className="block" />
+              <img key={index} src={item?.bannerImg} alt={`slider-${index}`} className="block w-full" />
             </div>
           );
         })}
